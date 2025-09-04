@@ -1,0 +1,42 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+
+
+<div class="ced-container">
+    <h1 class="page-title">{{title}}</h1>
+    <form method="POST" class="form-ced">
+        {% csrf_token %}
+        {% if error %}
+            <p class="text-danger">{{ error }}</p>
+        {% endif %}
+        
+
+        <div class="ced-label">{{ form.username.label }}</div>
+        <div class="ced-cell">{{ form.username }}</div>
+
+        <div class="ced-label">{{ form.first_name.label }}</div>
+        <div class="ced-cell">{{ form.first_name }}</div>
+
+        <div class="ced-label">{{ form.last_name.label }}</div>
+        <div class="ced-cell">{{ form.last_name }}</div>
+
+        <div class="ced-label">{{ form.email.label }}</div>
+        <div class="ced-cell">{{ form.email }}</div>
+
+        {% if form.non_field_errors %}
+            <div class="error">{{ form.non_field_errors }}</div>
+        {% endif %}
+        
+        <div class="ced-label">{{ form.password1.label }}</div>
+        <div class="ced-cell">{{ form.password1 }}</div>
+        
+        <div class="ced-label">{{ form.password2.label }}</div>
+        <div class="ced-cell">{{ form.password2 }}</div>
+        
+     
+
+
+    <button type="submit" class="save-btn">Save</button>
+    </form>
+</div>
+{% endblock %}

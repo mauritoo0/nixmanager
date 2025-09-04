@@ -1,0 +1,24 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+
+<div class="ced-container">
+    <h1 class="page-title">{{user.username}}'s profile</h1>
+
+    
+    <h3 class="ced-label">Username</h3>
+    <div class="ced-label">{{user.username}}</div>
+    <h3 class="ced-label">Name</h3>
+    <div class="ced-label">{{user.first_name}}</div>
+    <h3 class="ced-label">Surname</h3>
+    <div class="ced-label">{{user.last_name}}</div>
+    <h3 class="ced-label">Email</h3>
+    <div class="ced-label">{{user.email}}</div>
+
+</div>
+
+<a href="{% url 'edit_profile' %}" class="btn-cd">Edit</a>
+
+
+
+
+{% endblock %}

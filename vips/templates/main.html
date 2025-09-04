@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- User's main page -->
+<div class="main-container">
+    <div class="main-text">
+        <p>Welcome, {{user.username}}</p>
+    </div>
+    <div class="user-dashboard">
+        <div class="dashboard-card">
+            <h3>Customers</h3>
+            <a href="{% url 'customers' %}" class="a-dashboard">
+                {{ total_customers }}
+            </a>
+        </div>
+        <div class="dashboard-card">
+            <h3>Reservations</h3>
+            <a href="{% url 'reservations' %}" class="a-dashboard">
+                {{ total_reservations }}
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

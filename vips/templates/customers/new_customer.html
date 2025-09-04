@@ -1,0 +1,45 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="template-container">
+
+    <h1 class="page-title">{{ title }}</h1>
+    <form action="{% url 'new_customer' %}" method="POST" class="ced-form">
+        {% csrf_token %}
+
+        {% if error %}
+            <p class="text-danger">{{ error }}</p>
+        {% endif %}
+
+        <div class="ced-label">{{ form.first_name.label }}</div>
+        <div class="ced-cell">{{ form.first_name }}</div>
+
+        <div class="ced-label">{{ form.last_name.label }}</div>
+        <div class="ced-cell">{{ form.last_name }}</div>
+
+        <div class="ced-label">{{ form.address.label }}</div>
+        <div class="ced-cell">{{ form.address }}</div>
+
+        <div class="ced-label">{{ form.city.label }}</div>
+        <div class="ced-cell">{{ form.city }}</div>
+
+        <div class="ced-label">{{ form.nationality.label }}</div>
+        <div class="ced-cell">{{ form.nationality }}</div>
+
+        <div class="ced-label">{{ form.phone.label }}</div>
+        <div class="ced-cell">{{ form.phone }}</div>
+
+        <div class="ced-label">{{ form.email.label }}</div>
+        <div class="ced-cell">{{ form.email }}</div>
+
+        <div class="ced-label">{{ form.promoter.label }}</div>
+        <div class="ced-cell">{{ form.promoter }}</div>
+
+        <button class="save-btn">Save</button>
+    </form>
+
+</div>
+
+{% endblock %}

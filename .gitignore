@@ -1,0 +1,23 @@
+# Entorno virtual
+venv/
+
+# Base de datos SQLite
+db.sqlite3
+
+# Compilados de Python
+*.pyc
+__pycache__/
+
+# Archivos de log
+*.log
+
+# Carpeta de archivos estáticos compilados
+/staticfiles/
+
+# IDEs
+.vscode/
+.idea/
+
+# Archivos del sistema de Windows
+Thumbs.db
+.DS_Store

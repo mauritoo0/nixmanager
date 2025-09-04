@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="ced-container">
+    <h1 class="page-title">{{title}}</h1>
+    <form action="{% url 'edit_promoter' promoter.id %}" method="POST" class="ced-form">
+        {% csrf_token %}
+        {% if error %}
+            <p class="text-danger">{{ error }}</p>
+        {% endif %}
+
+        <div class="ced-label">{{ form.first_name.label }}</div>
+        <div class="ced-cell">{{ form.first_name }}</div>
+        <div class="ced-label">{{ form.last_name.label }}</div>
+        <div class="ced-cell">{{ form.last_name }}</div>
+        <div class="ced-label">{{ form.area.label }}</div>
+        <div class="ced-cell">{{ form.area }}</div>
+        <div class="ced-label">{{ form.phone.label }}</div>
+        <div class="ced-cell">{{ form.phone }}</div>
+        <button type="submit" class="save-btn">Save</button>
+    </form>
+    
+</div>
+
+{% endblock %}

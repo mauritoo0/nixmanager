@@ -1,0 +1,70 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="template-container">
+    <h1 class="page-title">{{ title }}</h1>
+
+    <div class="search-bar"><!-- Search bar -->
+        <form method="GET" action="">
+            {{ form.b_customer }}
+            <button type="submit" class="save-btn">Search</button>
+            <button type="button" onclick="window.location.href='{% url 'customers' %}'" class="save-btn">Clear search</button>
+        </form>
+    </div>    
+
+    <table class="table-container"><!-- Table with all customers on db -->
+        <thead>
+            <tr>
+                <th><a href="?sort={% if request.GET.sort == 'first_name' %}-first_name{% else %}first_name{% endif %}">First Name</a></th>
+                <th><a href="?sort={% if request.GET.sort == 'last_name' %}-last_name{% else %}last_name{% endif %}">Last Name</a></th>
+                <th><a href="?sort={% if request.GET.sort == 'address' %}-address{% else %}address{% endif %}">Address</a></th>
+                <th><a href="?sort={% if request.GET.sort == 'city' %}-city{% else %}city{% endif %}">City</a></th>
+                <th><a href="?sort={% if request.GET.sort == 'nationality' %}-nationality{% else %}nationality{% endif %}">Nationality</a></th>
+                <th><a href="?sort={% if request.GET.sort == 'phone' %}-phone{% else %}phone{% endif %}">Phone</a></th>
+                <th><a href="?sort={% if request.GET.sort == 'email' %}-email{% else %}email{% endif %}">Email</a></th>
+                <th><a href="?sort={% if request.GET.sort == 'promoter' %}-promoter{% else %}promoter{% endif %}">Promoter</a></th>
+                
+                <th>Edit</th>
+                <th>Delete</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+                <tr>
+                    <td>{{ customer.first_name }}</td>
+                    <td>{{ customer.last_name }}</td>
+                    <td>{{ customer.address }}</td>
+                    <td>{{ customer.city }}</td>
+                    <td>{{ customer.nationality.name }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.promoter }}</td>
+                    {% if user.is_superuser or user == customer.user %}
+                        <td><!-- Form to edit or delete customer -->
+                            <a href="{% url 'edit_customer' customer.id %}" class="edit-item">Edit</a>    
+                        </td>
+                        <td>
+                            <form method="POST" action="{% url 'delete_customer' customer.id %}" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="delete-item bi bi-trash" onclick="return confirmDelete()"></button>
+                            </form>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!-- Button for a new customer -->
+    <a href="{% url 'new_customer' %}" class="btn-cd">New customer</a>
+
+</div>
+<!-- Script to confirm delete -->
+<script>
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this customer?");
+    }
+</script>
+
+{% endblock %}

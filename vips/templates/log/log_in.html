@@ -1,0 +1,31 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<a href="{% url 'index' %}" class="back-btn">Back</a>
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-5">
+            <form method="POST" class="card card-body">
+                <h1 class="text-center">{{title}}</h1>
+                <div class="text-danger">{{error}}</div>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Enter your username">
+                </div>
+                <div class="mb-3">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password">
+                </div>
+                <button class="btn btn-primary">
+                    Log in
+                </button>
+            </form>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

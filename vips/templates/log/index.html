@@ -1,0 +1,18 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<main class="container w-50 py-5">
+    <section class="card card-body">
+        <h1 class="text-center py-4">Welcome</h1>
+        <!-- Links to forms to create a new user or log in -->
+        <div class="text-center">
+            <a href="{% url 'sign_up' %}" class="btn btn-secondary">Sign up</a>
+            <a href="{% url 'log_in' %}" class="btn btn-dark">Log in</a>
+
+        </div>
+    </section>
+    <p class="desktop-advertising">This app was designed to be used on desktop</p>
+</main>
+
+{% endblock %}

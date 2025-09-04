@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+
+<div class="ced-container">
+    <h1 class="page-title">{{ title }}</h1>
+    <form action="{% url 'new_reservation' %}" method="POST" class="form-ced">
+        {% csrf_token %}
+        
+        <div class="label-ced">{{ form.customer.label }}</div>
+        <div class="celda-ced">{{ form.customer }}</div>
+
+        <div class="label-ced">{{ form.table.label }}</div>
+        <div class="celda-ced">{{ form.table }}</div>
+
+        {% if form.non_field_errors %}
+        <div class="error">
+            {{ form.non_field_errors }}
+        </div>
+        {% endif %}
+
+        <div class="ced-label">{{ form.guests.label }}</div>
+        <div class="ced-cell">{{ form.guests }}</div>
+
+        <div class="ced-label">{{ form.date.label }}</div>
+        <div class="ced-cell">{{ form.date }}</div>
+
+        <div class="ced-label">{{ form.promoter.label }}</div>
+        <div class="ced-cell">{{ form.promoter }}</div>
+
+        <button class="save-btn">Save</button>
+
+    </form>
+</div>
+
+{% endblock %}

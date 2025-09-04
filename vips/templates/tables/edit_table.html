@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="ced-container">
+    <h1 class="page-title">{{ title }}</h1>
+    <form action="{% url 'edit_table' table.id %}" method="POST" class="ced-form">
+        {% csrf_token %}
+        {% if error %}
+            <p class="text-danger">{{ error }}</p>
+        {% endif %}
+
+        <div class="ced-label">{{ form.number.label }}</div>
+        <div class="ced-cell">{{ form.number }}</div>
+
+        <div class="ced-label">{{ form.capacity.label }}</div>
+        <div class="ced-cell">{{ form.capacity }}</div>
+
+        <div class="ced-label">{{ form.price.label }}</div>
+        <div class="ced-cell">{{ form.price }}</div>
+
+        <button type="submit" class="save-btn">Save</button>
+    </form>
+</div>
+
+{% endblock %}

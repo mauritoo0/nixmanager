@@ -1,0 +1,247 @@
+:root {
+    --color-fondo-start: #252424;
+    --color-fondo-end: #929294;
+    
+    
+}
+
+body {
+    font-family: "Familjen Grotesk", sans-serif;
+    background-color: rgb(201, 193, 193);
+    color: black;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, var(--color-fondo-start), var(--color-fondo-end));
+    text-shadow: 2px 2px 3px black;
+}
+
+a {
+    text-decoration: none;
+    color: inherit; 
+}
+
+.desktop-advertising{
+    color: white;
+    text-align: center;
+    justify-content: center;
+    margin-top: 50%;
+    font-style: italic;
+}
+
+/*Navbar layout base.html*/
+.nav-link.text-light:hover {
+    color: #afa7a6 !important; 
+}
+
+/*Template container from all templates*/
+.template-container{
+    color: #e6e3e3;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+}
+
+/*Template container from main.html */
+.main-container{
+    color: #e6e3e3;
+    display: flex;
+    height: 100vh;
+    flex-direction: row;
+    margin: 30px;
+}
+
+/*Text from main.html*/
+.main-text{
+    font-size: 40px;
+    margin-top: 200px;
+    width: 50%;
+}
+
+/*User's dashboard from main page*/
+.user-dashboard{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+/*Cards from user's dashboard*/
+.dashboard-card{
+    flex: 1;
+    color: rgb(211, 195, 195);
+}
+
+.dashboard-card h3{
+    font-style: italic;
+    
+    
+
+}
+
+.a-dashboard{
+    font-size: 2.5rem;
+    text-shadow: 3px 3px 3px black;
+    
+
+}
+
+/*Text title from all templates*/
+.page-title{
+    margin: 20px 0 20px 30px;
+    color: #e6e3e3;
+
+    
+}
+
+/*Tables showing a list from main templates (promoters.html, customers.html, etc)*/
+.table-container {
+    margin: 20px;
+    background-color: inherit;
+   
+    
+}
+/*Lines of the tables*/
+.table-container th, .table-container td {
+    padding: 10px; 
+    text-align: left;
+    
+}
+
+/*Head of the tables*/
+.table-container thead{
+    background: #27272b;
+    
+    
+}
+
+/*Button "Create new..."*/
+.btn-cd {
+    margin: 10px 0 0 20px;
+    padding: 3px 10px;
+    border-radius: 5px;
+    align-self:flex-start;
+    color: rgb(252, 252, 252);
+    background-color: black;
+    cursor: pointer;
+    
+}
+
+.btn-cd:hover {
+    color: #afa7a6; 
+}
+
+/*Button edit*/
+.edit-item:hover{
+    color: #252424; 
+
+}
+
+/*Container from "New/edit item"*/
+.ced-container{
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    color: #e6e3e3;
+
+}
+
+/*Form from "New/edit item"*/
+.ced-form{
+    margin-left: 30px;
+}
+
+/*Cells from "New/edit item"*/
+.ced-cell{
+    width: 500px;
+    margin-bottom: 20px;
+}
+
+.ced-cell input{
+    width: 100%;
+    
+}
+
+/*Button to save "New/edit item"*/
+.save-btn{
+    padding: 3px 10px;
+    border-radius: 5px;
+    align-self:flex-start;
+    color: rgb(252, 252, 252);
+    background-color: black;
+    cursor: pointer;
+}
+
+.save-btn:hover {
+    color: #afa7a6; 
+}
+
+/*Button to delete item*/
+.delete-item {
+    background: none; 
+    border: none;     
+    padding: 0;       
+    cursor: pointer; 
+    color: inherit;  
+}
+
+.delete-item:hover {
+    cursor: pointer; 
+    color: red;  
+    
+}
+
+/*Card from form to index, log_in, profile, sign_up*/
+.card {
+    color: white;
+    background-color: #999594;
+}
+
+/*Back button*/
+.back-btn{
+    position: absolute;
+    margin: 20px;
+    padding: 3px 10px;
+    border-radius: 5px;
+    align-self:flex-start;
+    color: rgb(252, 252, 252);
+    background-color: black;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    color: #afa7a6; 
+}
+
+
+/*Error messages*/
+.error ul{
+    padding: 0;
+    color: red;
+    list-style: none;
+    text-shadow: 2px 2px 2px white;
+}
+
+
+.text-danger{
+    padding: 0;
+    color: red;
+    font-weight: 800;
+    text-shadow: none;
+}
+
+/*Search bars*/
+.search-bar {
+    margin-left: 30px;
+}
+
+.search-bar input{
+    width: 400px;
+}
+
+/*Search bars by date*/
+.date-search-bar{
+    margin: 20px 30px 0 30px;
+}
+.date-search-bar input{
+    width: 200px;
+
+}

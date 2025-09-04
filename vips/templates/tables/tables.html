@@ -1,0 +1,50 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="template-container">
+    <h1 class="page-title">{{ title }}</h1>
+
+    <table class="table-container"><!-- Table with all tables on db -->
+        <thead>
+            <tr>
+                <th><a href="?sort={% if request.GET.sort == 'number' %}-number{% else %}number{% endif %}">Table number</a></th>
+                <th><a href="?sort={% if request.GET.sort == 'capacity' %}-capacity{% else %}capacity{% endif %}">Capacity</a></th>
+                <th><a href="?sort={% if request.GET.sort == 'price' %}-price{% else %}price{% endif %}">Price</a></th>
+                <th>Edit</th>
+                <th>Delete</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for table in tables %}
+                <tr>
+                    <td>{{ table.number }}</td>
+                    <td>{{ table.capacity }}</td>
+                    <td>{{ table.price }}</td>
+                    <td><!-- Form to edit or delete table -->
+                        <a href="{% url 'edit_table' table.id %}" class="edit-item">Edit</a>
+                    </td>
+                    <td>
+                        <form action="{% url 'delete_table' table.id %}" method="POST" onsubmit="return confirmDelete();">
+                            {% csrf_token %}
+                            <button type="submit" class="delete-item bi bi-trash"></button>
+                        </form>
+                    </td>
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!-- Button for a new table -->
+    <a href="{% url 'new_table' %}" class="btn-cd">Create table</a>
+    
+</div>
+<!-- Script to confirm delete -->
+<script>
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this table?");
+    }
+</script>
+
+{% endblock %}
